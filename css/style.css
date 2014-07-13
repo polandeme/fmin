@@ -1,3 +1,7 @@
+* {
+    padding: 0;
+    margin: 0;
+     }
 .wrap {
     width: 334px;
     height: 600px;
@@ -17,4 +21,13 @@ td {
     width: 83px;
     height: 100px;
     border: 1px solid blue;
+}
+.red {
+    background: red;
+}
+.white {
+    background: white;
+}
+.blue {
+    background: blue;
 }
