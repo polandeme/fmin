@@ -5,8 +5,13 @@
 // 	available
 // }
 
-function initCell() {
-	
+function initCell(n) {
+	var list = '';
+	var li = '';
+	for(var i = 0; i < n; i++) {
+		li = '<li class="cell-item">' + '</li>';
+		list += li;
+	}
 }
 /**
  * 1. 多个对象push进去
