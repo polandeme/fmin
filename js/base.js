@@ -33,8 +33,7 @@ function getRandomNum(base) {
 	}
 }
 
-initCell(16);
-insertNum();
+//往初始化cell中插入数字
 function insertNum() {
 	var index_one = Math.floor(Math.random() * 16);
 	var index_two = Math.floor(Math.random() * 16);
@@ -42,10 +41,35 @@ function insertNum() {
 		index_two = Math.floor(Math.random() * 16);
 	}
 	var randomNum = getRandomNum();
-	$('.cell-item').eq(index_one).html('<span>' + randomNum.num_one + '</span>');
-	$('.cell-item').eq(index_two).html('<span>' + randomNum.num_two + '</span>');
+	var num_one = randomNum.num_one;
+	var num_two = randomNum.num_two;
+
+	//(num_two = [num_one, num_one = num_two][0]) swap two num
+	(num_one > num_two) ? (num_two = [num_one, num_one = num_two][0]) : null;
+
+	$('.cell-item').eq(index_one)
+				   .addClass('has-num right-cell')
+				   .html('<span>' + num_one + '</span>');
+
+	$('.cell-item').eq(index_two)
+	               .addClass('has-num wrong-cell')
+	               .html('<span>' + num_two + '</span>');
 }
 
+// 点击监听
+function handelClick() {
+	$('body').on('click', '.right-cell', function() {
+		console.log('is right');
+	});
+	$('body').on('click', '.cell-item:not(.right-cell)', function() {
+		console.log('is wrong');
+	})
+}
+
+initCell(16);
+insertNum();
+
+handelClick();
 /**
  * 1. 多个对象push进去
  * 2. 增加attr, 点击后改变当前attr,获取新的attr.
