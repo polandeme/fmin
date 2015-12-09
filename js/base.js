@@ -59,6 +59,8 @@ function insertNum() {
 // 点击监听
 function handelClick() {
 	$('body').on('click', '.right-cell', function() {
+	$(this).html('').removeClass('has-num right-cell');
+		reDraw();
 		console.log('is right');
 	});
 	$('body').on('click', '.cell-item:not(.right-cell)', function() {
@@ -66,6 +68,29 @@ function handelClick() {
 	})
 }
 
+// 
+function reDraw(n) {
+	var n = n || 15;
+	var index = Math.floor(Math.random() * n);
+	var num = Math.floor(Math.random() * 10);
+	var wrong_num = parseInt($('.wrong-cell').text());
+	console.log(wrong_num);
+	// console.log()
+	while(wrong_num == num) {
+		console.log(num);
+		num = Math.floor(Math.random() * 10);
+	}
+	var html = '<span>' + num + '</span>';
+	if(num < wrong_num) {
+		$('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num right-cell').html(html);
+	} else {
+		$('.wrong-cell').addClass('right-cell');
+		$('.cell-item').removeClass('wrong-cell');//.addClass('right-cell');
+		$('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num wrong-cell').html(html);
+	}
+	// $('.right-cell').
+	// $('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num').html(html)
+}
 initCell(16);
 insertNum();
 
