@@ -61,6 +61,7 @@ function insertNum() {
 function handelClick() {
 	$('body').on('click', '.right-cell', function() {
 		count++;
+		scoreAnim();
 		var curNum = parseInt($('.right-cell').text());
 		$(this).html('').removeClass('has-num right-cell');
 		console.log('curNum');
@@ -70,6 +71,8 @@ function handelClick() {
 	});
 	$('body').on('click', '.cell-item:not(.right-cell)', function() {
 		console.log('is wrong');
+		var that = $(this);
+		errorClickHandle(that);
 	})
 }
 
@@ -107,6 +110,54 @@ function randomAgain(curNum, base) {
 	var newNum = Math.ceil(Math.random() * 10) + 1;
 	return newNum + curNum;
 }
+
+
+    //分数增加动画
+function scoreAnim() {
+    var tar = $('body');
+    var i = $("<b>").text("+" + 1);
+    var y = event.pageY, x = event.pageX;
+    console.log('-------');
+    console.log(y);
+    console.log(i)
+    i.css({
+        top: y-50,
+        left: x,
+        "font-size": "24px",
+        position: "absolute",
+        color: "red"
+    });
+    console.log(i);
+    tar.append(i);
+    i.animate({
+        top: y-150,
+        left: x,
+        opacity: 0,
+        "font-size": "1.4em"
+    }, 600,function(){ i.remove(); });
+
+    event.stopPropagation();
+}
+
+// error click animate
+function errorClickHandle(that) {
+
+	that.animate({
+        backgroundColor: "red"
+    }, 150, function() {
+        var self = that;
+        // self.mouseout(function(){
+        //     console.log("dd00");
+        //     self.css("background", "");
+           
+        //     event.stopPropagation(); 
+        // }); // have a bug 
+        setTimeout(function(){
+                self.css("background", "");
+        },50);
+    });
+}
+
 /**
  * 1. 多个对象push进去
  * 2. 增加attr, 点击后改变当前attr,获取新的attr.

@@ -45,8 +45,9 @@ li {
     font-size: 30px;
 }
 .has-num {
-	background: gray;
+	/*background: #DAC6C6;*/
+	background: #7878D6;
 }
 .right-cell {
-	background: blue;
+	background: #7878D6;
 }
