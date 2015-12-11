@@ -5,6 +5,7 @@
 // 	available
 // }
 //初始化cell
+var count = 0; // 正确点击次数，也是生成新的随机数的基数。
 function initCell(n) {
 	var list = '';
 	var li = '';
@@ -59,9 +60,13 @@ function insertNum() {
 // 点击监听
 function handelClick() {
 	$('body').on('click', '.right-cell', function() {
-	$(this).html('').removeClass('has-num right-cell');
-		reDraw();
-		console.log('is right');
+		count++;
+		var curNum = parseInt($('.right-cell').text());
+		$(this).html('').removeClass('has-num right-cell');
+		console.log('curNum');
+		console.log(curNum);
+		console.log('curNum end');
+		reDraw(curNum);
 	});
 	$('body').on('click', '.cell-item:not(.right-cell)', function() {
 		console.log('is wrong');
@@ -69,16 +74,19 @@ function handelClick() {
 }
 
 // 
-function reDraw(n) {
+function reDraw(curNum) {
 	var n = n || 15;
 	var index = Math.floor(Math.random() * n);
 	var num = Math.floor(Math.random() * 10);
+	// var curNum = parseInt($('.right-cell').text());
+	var num = randomAgain(curNum);
+	console.log('new num ');
+	console.log(num);
+	console.log('new num end');
 	var wrong_num = parseInt($('.wrong-cell').text());
-	console.log(wrong_num);
 	// console.log()
 	while(wrong_num == num) {
-		console.log(num);
-		num = Math.floor(Math.random() * 10);
+		num = randomAgain(curNum);;
 	}
 	var html = '<span>' + num + '</span>';
 	if(num < wrong_num) {
@@ -86,7 +94,7 @@ function reDraw(n) {
 	} else {
 		$('.wrong-cell').addClass('right-cell');
 		$('.cell-item').removeClass('wrong-cell');//.addClass('right-cell');
-		$('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num wrong-cell').html(html);
+		$('.cell-item:not(.right-cell)').eq(index).addClass('has-num wrong-cell').html(html);
 	}
 	// $('.right-cell').
 	// $('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num').html(html)
@@ -95,6 +103,10 @@ initCell(16);
 insertNum();
 
 handelClick();
+function randomAgain(curNum, base) {
+	var newNum = Math.ceil(Math.random() * 10) + 1;
+	return newNum + curNum;
+}
 /**
  * 1. 多个对象push进去
  * 2. 增加attr, 点击后改变当前attr,获取新的attr.
