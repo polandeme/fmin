@@ -106,6 +106,7 @@ initCell(16);
 insertNum();
 
 handelClick();
+timeDown();
 function randomAgain(curNum, base) {
 	var newNum = Math.ceil(Math.random() * 10) + 1;
 	return newNum + curNum;
@@ -160,6 +161,19 @@ function errorClickHandle(that) {
     });
 }
 
+
+ function timeDown(){
+ 	var now = parseInt($('.time-down').text());
+ 	var timer = null;
+ 	if(now > 0) {
+	 	timer = setInterval(function() {
+	 		$('.time-down').text(now--);
+	 		if(now <0 ) {
+	 			clearInterval(timer);
+	 		}
+	 	},1000)
+	 }
+}
 /**
  * 1. 多个对象push进去
  * 2. 增加attr, 点击后改变当前attr,获取新的attr.
