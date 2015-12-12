@@ -8,16 +8,46 @@ li {
 .header {
 	width: 100%;
 	height: auto;
+	border: 1px solid gray;
+}
+.gird {
+	display: inline-block;
+}
+.col-1 {
+	width: 16.66%;
+}
+.col-3 {
+	width: 50%;
+}
+.col-4 {
+	width: 66.664%;
+}
+.menu {
+	float: left;
+	font-size: 25px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
 }
 .time-down {
-	width: 100%;
+	/*width: 100%;*/
+	display: inline-block;
 	height: 50px;
+	float: left;
 	font-size: 40px;	
 	line-height: 50px;
 	text-align: center;
 	color: red;
-	border: 1px solid gray;
 }
+.start-btn {
+	float: right;
+	font-size: 25px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
 .cell-wrapper {
 	width: 320px;
 	max-width: 400px;
