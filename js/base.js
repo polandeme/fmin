@@ -124,7 +124,9 @@ function scoreAnim() {
         top: y-50,
         left: x,
         "font-size": "24px",
+        "font-weight": "400",
         position: "absolute",
+
         color: "red"
     });
     console.log(i);

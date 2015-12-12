@@ -6,16 +6,22 @@ li {
 	list-style: none;
 }
 .cell-wrapper {
-	width: auto;
+	width: 320px;
 	max-width: 400px;
 	/*height: 500px;*/
 	margin: 40px auto;
+	position: relative;
+	float: right;
+	left: -50%;
 	/*border: 1px solid gray;*/
 }
 
 .cell-group {
 	text-align: center;
 	font-size: 0;
+	position: relative;
+	left: 50%;
+	/*border: 1px solid blue;*/
 }
 .cell-item {
 	font-size: 16px;
@@ -24,6 +30,7 @@ li {
 	width: 80px;
 	height: 100px;
 	border: 1px solid red;
+	box-sizing: border-box;
 	/*border-bottom: 0;*/
 }
 .cell-item:nth-child(4n-2) {
@@ -50,4 +57,7 @@ li {
 }
 .right-cell {
 	background: #7878D6;
+}
+.clear{
+	clear: both;
 }
