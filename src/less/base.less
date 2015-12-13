@@ -1,0 +1,106 @@
+@cell-width: 80px;
+// @col: 100 / 6;
+@col: 16.666666666%;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+
+.header {
+	width: 100%;
+	height: auto;
+	border: 1px solid gray;
+}
+.gird {
+	display: inline-block;
+}
+.col-1 {
+	width: @col;
+}
+.col-3 {
+	width: @col * 3;
+}
+.col-4 {
+	width: @col * 4;
+}
+.menu {
+	float: left;
+	font-size: 25px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+.time-down {
+	/*width: 100%;*/
+	display: inline-block;
+	height: 50px;
+	float: left;
+	font-size: 40px;	
+	line-height: 50px;
+	text-align: center;
+	color: red;
+}
+.start-btn {
+	float: right;
+	font-size: 25px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+.cell-wrapper {
+	width: 320px;
+	max-width: @cell-width * 4;
+	margin: 40px auto;
+	position: relative;
+	float: right;
+	left: -50%;
+}
+
+.cell-group {
+	text-align: center;
+	font-size: 0;
+	position: relative;
+	left: 50%;
+}
+.cell-item {
+	font-size: 16px;
+	float: left;
+	width: @cell-width;
+	height: 100px;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+.cell-item:nth-child(4n-2) {
+	border-left: 0;
+	border-right: 0;
+}
+.cell-item:nth-child(4n-1) {
+	border-right: 0;
+}
+
+.border-un-bottom {
+	border-bottom: none;
+}
+
+.cell-item span {
+	display: inline-block;
+    line-height: 100px;
+    height: 100px;
+    font-size: 30px;
+}
+.has-num {
+	background: #7878D6;
+}
+.right-cell {
+	background: #7878D6;
+}
+.clear{
+	clear: both;
+}

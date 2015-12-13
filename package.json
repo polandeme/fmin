@@ -1,0 +1,23 @@
+{
+  "name": "fmin",
+  "version": "1.0.0",
+  "description": "find min",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polandeme/fmin.git"
+  },
+  "author": "polandeme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polandeme/fmin/issues"
+  },
+  "homepage": "https://github.com/polandeme/fmin#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.5"
+  }
+}
