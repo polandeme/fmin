@@ -57,6 +57,10 @@ function initInsertNum() {
 function handelClick() {
 	$('body').on('click', '.right-cell', function() {
 		count++;
+		var score = $('.score').text();
+		console.log(score++);
+		console.log('is score');
+		$('.score').text(score);
 		scoreAnim();
 		var curNum = parseInt($('.right-cell').text());
 		$(this).html('').removeClass('has-num right-cell');
@@ -88,7 +92,7 @@ function reDraw(curNum) {
 	var wrong_num = parseInt($('.wrong-cell').text());
 
 	while(wrong_num == num) {
-		num = randomAgain(curNum);;
+		num = randomAgain(curNum);
 	}
 	var html = '<span>' + num + '</span>';
 	if(num < wrong_num) {
@@ -113,9 +117,6 @@ function scoreAnim() {
     var tar = $('body');
     var i = $("<b>").text("+" + 1);
     var y = event.pageY, x = event.pageX;
-    console.log('-------');
-    console.log(y);
-    console.log(i)
     i.css({
         top: y-50,
         left: x,
@@ -159,6 +160,8 @@ function timeDown(){
 	 		$('.time-down').text(--now);
 	 		if(now <= 0 ) {
 	 			clearInterval(timer);
+	 			// 关闭或者刷新的时候时候同样执行
+	 			store($('.score').text());
 	 			unbindHandleClick();
 	 		}
 	 	},1000)
@@ -177,6 +180,15 @@ function start(e) {
 	e.stopPropagation();
 }
 
+// 本地存储模块， 存储最高分
+function store(score) {
+	console.log(score);
+	var curScore = window.localStorage.getItem('maxScore');
+	console.log(curScore);
+	console.log('-----');
+	console.log(curScore);
+	curScore > score ? null : window.localStorage.setItem('maxScore', score);
+}
 /**
  * 1. 多个对象push进去
  * 2. 增加attr, 点击后改变当前attr,获取新的attr.
