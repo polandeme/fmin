@@ -85,7 +85,7 @@ function reDraw(n) {
 		$('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num right-cell').html(html);
 	} else {
 		$('.wrong-cell').addClass('right-cell');
-		$('.cell-item').removeClass('wrong-cell');//.addClass('right-cell');
+		$('.cell-item').removeClass('wrong-cell');
 		$('.cell-item:not(.wrong-cell)').eq(index).addClass('has-num wrong-cell').html(html);
 	}
 	// $('.right-cell').

@@ -50,3 +50,6 @@ li {
 .right-cell {
 	background: blue;
 }
+.clear {
+	clear: both;
+}
