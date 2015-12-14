@@ -1,10 +1,15 @@
+@cell-width: 80px;
+@col: 16.666666666%;
+
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 li {
 	list-style: none;
 }
+
 .header {
 	width: 100%;
 	height: auto;
@@ -14,15 +19,15 @@ li {
 	display: inline-block;
 }
 .col-1 {
-	width: 16.66%;
+	width: @col;
 }
 .col-3 {
-	width: 50%;
+	width: @col * 3;
 }
 .col-4 {
-	width: 66.664%;
+	width: @col * 4;
 }
-.menu {
+.score {
 	float: left;
 	font-size: 25px;
 	height: 50px;
@@ -50,13 +55,11 @@ li {
 
 .cell-wrapper {
 	width: 320px;
-	max-width: 400px;
-	/*height: 500px;*/
+	max-width: @cell-width * 4;
 	margin: 40px auto;
 	position: relative;
 	float: right;
 	left: -50%;
-	/*border: 1px solid gray;*/
 }
 
 .cell-group {
@@ -64,17 +67,14 @@ li {
 	font-size: 0;
 	position: relative;
 	left: 50%;
-	/*border: 1px solid blue;*/
 }
 .cell-item {
 	font-size: 16px;
-	/*display: inline-block;*/
 	float: left;
-	width: 80px;
+	width: @cell-width;
 	height: 100px;
 	border: 1px solid red;
 	box-sizing: border-box;
-	/*border-bottom: 0;*/
 }
 .cell-item:nth-child(4n-2) {
 	border-left: 0;
@@ -95,7 +95,6 @@ li {
     font-size: 30px;
 }
 .has-num {
-	/*background: #DAC6C6;*/
 	background: #7878D6;
 }
 .right-cell {
