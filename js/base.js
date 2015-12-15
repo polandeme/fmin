@@ -104,6 +104,7 @@ function reDraw(curNum) {
 	}
 }
 initCell(16);
+showMaxScore();
 initInsertNum();
 
 // 新数字生成策略
@@ -187,7 +188,11 @@ function store(score) {
 	console.log(curScore);
 	console.log('-----');
 	console.log(curScore);
-	curScore > score ? null : window.localStorage.setItem('maxScore', score);
+	curScore > score ? null : window.localStorage.setItem('maxScore', score) || $('.max-score-num').text(score);
+}
+function showMaxScore() {
+	var maxScore = window.localStorage.getItem('maxScore');
+	$('.max-score-num').text(maxScore);
 }
 /**
  * 1. 多个对象push进去

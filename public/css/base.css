@@ -94,7 +94,13 @@ li {
   clear: both;
 }
 .footer {
-  position: fixed;
+  float: left;
   width: 100%;
   height: 50px;
+  text-align: center;
+}
+.max-score {
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
 }
