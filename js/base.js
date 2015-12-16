@@ -58,19 +58,14 @@ function handelClick() {
 	$('body').on('click', '.right-cell', function() {
 		count++;
 		var score = $('.score').text();
-		console.log(score++);
-		console.log('is score');
+		score++;
 		$('.score').text(score);
 		scoreAnim();
 		var curNum = parseInt($('.right-cell').text());
 		$(this).html('').removeClass('has-num right-cell');
-		console.log('curNum');
-		console.log(curNum);
-		console.log('curNum end');
 		reDraw(curNum);
 	});
 	$('body').on('click', '.cell-item:not(.right-cell)', function() {
-		console.log('is wrong');
 		var that = $(this);
 		errorClickHandle(that);
 	})
@@ -185,9 +180,6 @@ function start(e) {
 function store(score) {
 	console.log(score);
 	var curScore = window.localStorage.getItem('maxScore');
-	console.log(curScore);
-	console.log('-----');
-	console.log(curScore);
 	curScore > score ? null : window.localStorage.setItem('maxScore', score) || $('.max-score-num').text(score);
 }
 function showMaxScore() {

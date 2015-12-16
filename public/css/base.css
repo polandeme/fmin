@@ -48,7 +48,7 @@ li {
   text-align: center;
 }
 .cell-wrapper {
-  max-width: 400px;
+  max-width: 320px;
   margin: 40px auto;
   position: relative;
   float: right;
@@ -63,8 +63,8 @@ li {
 .cell-item {
   font-size: 16px;
   float: left;
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 100px;
   border: 1px solid #3D4438;
   box-sizing: border-box;
 }
